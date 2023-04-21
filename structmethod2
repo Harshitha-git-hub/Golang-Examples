@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+type author struct {
+	name string
+	age  int
+}
+
+type book struct {
+	publishedbooks int
+	pendingbooks   int
+	totalbooks     int
+}
+
+func main() {
+	author := author{"harshitha", 23}
+	fmt.Println(author)
+
+	book := book{22, 11, 33}
+	fmt.Println(book)
+}
