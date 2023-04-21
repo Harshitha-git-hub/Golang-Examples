@@ -1,0 +1,79 @@
+Defer:-
+
+The defer statement enables you to prevent the execution of a function until a later time, depending on what you are trying to accomplish.
+Using a real-world example, growing up every guy has the ability to grow beards but that ability is held for some reason till you are older. Basically, that is how defer works.
+
+Properties
+Defer statement doesn’t run a function, it runs the function call.
+It follows last in, first out order, i.e., the last defer statement that is called will be the first to be executed.
+
+
+example:-
+
+package main
+import("fmt")
+func main() {
+         defer fmt.Println("one")
+         defer fmt.Println("two")
+         defer fmt.Println("three")
+}
+output:
+
+three
+two
+one
+
+
+
+
+Panic:-
+
+panic is a built-in function that stops the control flow of your program. This can be done by the compiler or added manually to your code flow.
+We use panic statements when your application enters a state that it cannot recover from. Example: Trying to divide a number by 0.
+They occur when the program can’t continue at all.
+
+Properties
+Panics happen after a deferred statement is executed.
+the program ends after the panic statement is run.
+
+
+example:-
+
+package main
+import "fmt"
+func main(){
+        fmt.Println("one")
+        defer fmt.Println("three")
+        panic("a panic happened")
+        fmt.Println("four")
+}
+Output:
+
+one
+three
+panic: a panic happened
+
+
+
+
+Recover:-
+
+recover function is used to recover function from panic. Recover is only useful inside deferred functions. In a normal execution, a call to recover will returnniland have no other effect. Arecover function should always be called inside a defer function because the deferred function does not stop its execution if the program panics, so the recover function stops the panicking.
+
+Properties
+Recovery statements are used to come out of a panic
+Useful inside deferred functions. This is because when an application panics, it no longer executes the rest of the program except for deferred functions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
