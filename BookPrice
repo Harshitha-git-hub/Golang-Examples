@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+type Book struct {
+	title  string
+	author string
+	price  int
+}
+
+func (b Book) discount(percentage int) int {
+	DiscountedPrice := b.price * percentage / 100
+	actualPrice := b.price - DiscountedPrice
+	return actualPrice
+}
+
+func main() {
+	b := Book{"introduction to golang", "dennis ritche", 1000}
+	fmt.Println(b.discount(10))
+}
