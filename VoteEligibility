@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+type Person struct {
+	name string
+	age  int
+}
+
+func (p Person) IsAdult() {
+	age := 23
+	if age >= 18 == true {
+		fmt.Println("Eligible for voting")
+	} else {
+		fmt.Println("Not eligible for voting")
+	}
+}
+
+func main() {
+	p := Person{"harshitha", 23}
+	fmt.Println(p)
+	Person.IsAdult(p)
+}
